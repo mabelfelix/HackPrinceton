@@ -26,10 +26,17 @@ jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         mainPageTemplate = jinja_env.get_template('home.html')
-        self.response.out.write(mainPageTemplate.render())
 
-    
+        if request.user.is_authenticated():
+            self.redirect("/")
+        else:
+            self.response.out.write(mainPageTemplate.render())
+
+class UserHandler(webapp2.RequestHandler):
+    def get(self):
+        
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/home', MainHandler),
+    ('/', UserHandler)
 ], debug=True)
