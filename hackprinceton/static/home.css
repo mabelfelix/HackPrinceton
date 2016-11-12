@@ -1,3 +1,7 @@
 body {
  background-color: #e74c3c;
 }
+.logo {
+  margin: auto;
+  top: 100px;
+}
