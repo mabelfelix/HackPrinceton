@@ -27,16 +27,45 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         mainPageTemplate = jinja_env.get_template('home.html')
 
-        if request.user.is_authenticated():
-            self.redirect("/")
-        else:
-            self.response.out.write(mainPageTemplate.render())
+        # if request.user.is_authenticated():
+        #     self.redirect("/")
+        # else:
+        self.response.out.write(mainPageTemplate.render())
 
-class UserHandler(webapp2.RequestHandler):
-    def get(self):
-        
+# class UserHandler(webapp2.RequestHandler):
+#     def get(self):
+        # insidePageTemplate = jinja_env.get_template('inside.html')
+
+        # monday_sevenam = self.request.get('monday_sevenam')
+        # monday_eightam = self.request.get('monday_eightam')
+        # monday_nineam = self.request.get('monday_nineam')
+        # monday_tenam = self.request.get('monday_tenam')
+        # monday_elevenam = self.request.get('monday_elevenam')
+        # monday_twelvepm = self.request.get('monday_twelvepm')
+        # monday_onepm = self.request.get('monday_onepm')
+        # monday_twopm = self.request.get('monday_twopm')
+        # monday_threepm = self.request.get('monday_threepm')
+        # monday_fourpm = self.request.get('monday_fourpm')
+        # monday_fivepm = self.request.get('monday_fivepm')
+        # monday_sixpm = self.request.get('monday_sixpm')
+        # monday_sevenpm = self.request.get('monday_sevenpm')
+        # monday_eightpm = self.request.get('monday_eightpm')
+        # monday_ninepm = self.request.get('monday_ninepm')
+        # monday_tenpm = self.request.get('monday_tenpm')
+        # monday_elevenpm = self.request.get('monday_elevenpm')
+        # monday_twelveam = self.request.get('monday_twelveam')
+        # monday_oneam = self.request.get('monday_oneam')
+        # monday_twoam = self.request.get('monday_twoam')
+        # monday_threeam = self.request.get('monday_threeam')
+        # monday_fouram = self.request.get('monday_fouram')
+        # monday_fiveam = self.request.get('monday_fiveam')
+        # monday_sixam = self.request.get('monday_sixam')
+
+        # monday = [self.request.get('monday_sevenam'), self.request.get('monday_eightam'), self.request.get('monday_nineam'), self.request.get('monday_tenam'), self.request.get('monday_elevenam'), self.request.get('monday_twelvepm'), self.request.get('monday_onepm'), self.request.get('monday_twopm')]
+        # monday.extend(self.request.get('monday_threepm'), self.request.get('monday_fourpm'), self.request.get('monday_fivepm'), self.request.get('monday_sixpm'), self.request.get('monday_sevenpm'), self.request.get('monday_eightpm'), self.request.get('monday_ninepm'), self.request.get('monday_tenpm'))
+        # monday.extend(self.request.get)
 
 app = webapp2.WSGIApplication([
-    ('/home', MainHandler),
-    ('/', UserHandler)
+    ('/', MainHandler)
+    # ('/', UserHandler)
 ], debug=True)
